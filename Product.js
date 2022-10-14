@@ -1,7 +1,9 @@
+import TitleCase from "./TitleCase";
+
 function createProductInfo(product) {
   const productName = document.createElement("h5");
   productName.classList.add("card-title");
-  productName.innerText = product.name;
+  productName.innerText = TitleCase(product.name);
 
   const productPrice = document.createElement("p");
   productPrice.innerText = product.price;
@@ -22,7 +24,10 @@ function createProductInfo(product) {
 function createProductImg(product) {
   const productImage = document.createElement("img");
   productImage.classList.add("card-img-top");
-  productImage.src = product.url_image;
+  // Use default image if no there's no product image url available
+  productImage.src = !product.url_image
+    ? "public/no-pictures.png"
+    : product.url_image;
   productImage.alt = product.name;
   return productImage;
 }
