@@ -1,35 +1,41 @@
 import createCategory from "./Category";
 import createProduct from "./Product";
-let categorias = [
-  {
-    id: 1,
-    name: "Licores",
-  },
-  {
-    id: 1,
-    name: "Alimentos",
-  },
-  {
-    id: 1,
-    name: "Medicinas",
-  },
-  {
-    id: 1,
-    name: "Articulos de limpieza",
-  },
-];
 
-let product = {
-  id: 1,
-  name: "Pokemon",
-  url_image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png",
-  price: "$50",
-  discount: "10%",
-  category: 1,
-};
+const API_URL = "http://reto-bsale-backend.herokuapp.com/";
+
+async function getCategories() {
+  let res = await fetch(API_URL + "categories");
+  return res.json();
+}
+
+function toTitleCase(str) {
+  // Split string at every space
+  return str.replace(/\w\S*/g, (txt) => {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+}
+
+let categoriesJSON = await getCategories();
+let categories = categoriesJSON.categories.map((cat) => {
+  return {
+    id: cat.id,
+    name: toTitleCase(cat.name),
+  };
+});
+
+async function getProducts() {
+  let res = await fetch(API_URL + "products");
+  return res.json();
+}
+
+const productsJSON = await getProducts();
+const products = productsJSON.products;
+console.log(products);
 
 const categoryList = document.getElementById("category-list");
-categorias.map((li) => categoryList.appendChild(createCategory(li)));
+categories.map((li) => categoryList.appendChild(createCategory(li)));
 
 const productList = document.getElementById("products");
-productList.appendChild(createProduct(product));
+products.map((p) => {
+  productList.appendChild(createProduct(p));
+});
