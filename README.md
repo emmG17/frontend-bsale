@@ -1,4 +1,6 @@
 # frontend-bsale
+[![Netlify Status](https://api.netlify.com/api/v1/badges/03e38c94-7a7e-4365-8ffe-15d5d0dfe9da/deploy-status)](https://app.netlify.com/sites/keen-florentine-1bd47a/deploys)
+
 **Tienda en línea**
 
 Esta es una página web que permite a los usuarios visualizar los productos disponibles, seleccionarlos por categoría y encontrarlos mediante barra de búsqueda.
@@ -8,6 +10,8 @@ Se ocuparon las siguientes tecnologías en la construcción de esta web:
 * Javascript
 * Bootstrap 5
 * Vite
+
+Sitio: [Tienda en línea](https://keen-florentine-1bd47a.netlify.app/)
 
 ***
 ## Javascript
