@@ -1,4 +1,4 @@
-import TitleCase from "./TitleCase";
+import TitleCase from "./helpers/TitleCase";
 
 const createCategory = (category) => {
   const categoryItem = document.createElement("button");

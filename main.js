@@ -1,8 +1,8 @@
 import { format } from "prettier";
-import createCategory from "./Category";
-import createProduct from "./Product";
-import createProductModal from "./ProductModal";
-import Store from "./Store";
+import createCategory from "./Components//Category";
+import createProduct from "./Components/Product";
+import createProductModal from "./Components/ProductModal";
+import Store from "./Components/Store";
 
 async function refreshProductsByCategory(e) {
   const id = e.target.dataset.categoryId;

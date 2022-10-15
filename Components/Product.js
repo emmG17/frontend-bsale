@@ -1,4 +1,4 @@
-import TitleCase from "./TitleCase";
+import TitleCase from "./helpers/TitleCase";
 
 function addDiscount(discount) {
   const productDiscount = document.createElement("p");
