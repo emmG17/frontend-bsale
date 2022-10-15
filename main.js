@@ -18,40 +18,58 @@ async function getProducts() {
   return products.products;
 }
 
+// Request all products belonging to a given category
 async function getProductsByCategory(id) {
   let res = await fetch(`${API_URL}products/category/${id}`);
   let products = await res.json();
   return products.products;
 }
 
+// Request all products contanining the query in their names
 async function getProductsByQuery(product) {
   let res = await fetch(`${API_URL}products/${product}`);
   let products = await res.json();
   return products.products;
 }
 
+//
 async function refreshProductsByCategory(e) {
   const id = e.target.dataset.categoryId;
   const productList = document.getElementById("products");
-  productList.textContent = "";
+
+  // Update the product list title
+  updateResultsTitle(e.target.innerText);
+
+  // If ID is -1 load ALL products, otherwise load products by category
   let products =
     id === "-1" ? await getProducts() : await getProductsByCategory(id);
+
+  // Reset and update the product list
+  productList.textContent = "";
   populateProducts(productList, products);
 }
 
 async function refreshProductsFromSearch(e) {
-  console.log(e);
   e.preventDefault();
+
   // Get the user query
   const formData = new FormData(e.target);
   const productQuery = formData.get("productQuery");
 
+  // Update product grid title
+  updateResultsTitle(`Resultados para: ${productQuery}`);
+
   // Search query in DB
   const products = await getProductsByQuery(productQuery);
 
-  // Populate product grid
+  // Reset and populate product grid
   productList.textContent = "";
   populateProducts(productList, products);
+}
+
+function updateResultsTitle(message) {
+  const currentResults = document.getElementById("current-results");
+  currentResults.innerText = message;
 }
 
 function populateProducts(parent, products) {
