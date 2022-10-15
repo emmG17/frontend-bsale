@@ -1,6 +1,7 @@
 import { format } from "prettier";
 import createCategory from "./Category";
 import createProduct from "./Product";
+import createProductModal from "./ProductModal";
 import Store from "./Store";
 
 async function refreshProductsByCategory(e) {
@@ -47,6 +48,10 @@ function updateResultsTitle(message) {
 function populateProducts(parent, products) {
   products.map((p) => {
     const product = createProduct(p);
+    product.addEventListener("click", (e) => {
+      const app = document.getElementById("app");
+      app.appendChild(createProductModal(p));
+    });
     parent.appendChild(product);
   });
 }
