@@ -51,6 +51,22 @@ nav .btn:hover {
   margin-bottom: 2rem;
 }
 
+#back-top-btn {
+  position: fixed;
+  bottom: 5vh;
+  right: 3rem;
+  height: 10vh;
+  width: 10vh;
+  color: white;
+  background-color: var(--main-app-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.3);
+}
+
 .card {
   height: 60vh;
 }
