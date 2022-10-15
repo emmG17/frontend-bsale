@@ -1,23 +1,40 @@
 import TitleCase from "./TitleCase";
 
+function addDiscount(discount) {
+  const productDiscount = document.createElement("p");
+  productDiscount.classList.add("discount-rate");
+  productDiscount.innerText = `-${discount}%`;
+  return productDiscount;
+}
+
 function createProductInfo(product) {
   const productName = document.createElement("h5");
   productName.classList.add("card-title");
   productName.innerText = TitleCase(product.name);
 
   const productPrice = document.createElement("p");
-  productPrice.innerText = product.price;
-
-  const productDiscount = document.createElement("p");
-  productDiscount.innerText = product.discount;
+  productPrice.innerText = `$${product.price.toFixed(2)}`;
 
   const productInfo = document.createElement("div");
   productInfo.classList.add("card-body");
 
   productInfo.appendChild(productName);
   productInfo.appendChild(productPrice);
-  productInfo.appendChild(productDiscount);
 
+  if (product.discount !== 0) {
+    // Add a discount badge if the product has it
+    productInfo.appendChild(addDiscount(product.discount));
+
+    // Make the original price smaller and with line-through
+    productPrice.classList.add("discounted");
+
+    // Add the new discounted price
+    const newPrice = document.createElement("p");
+    let discountedPrice = product.price * (1 - product.discount / 100);
+    newPrice.innerText = `$${discountedPrice.toFixed(2)}`;
+    newPrice.classList.add("new-price");
+    productInfo.appendChild(newPrice);
+  }
   return productInfo;
 }
 
