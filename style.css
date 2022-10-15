@@ -1,9 +1,37 @@
+:root {
+  --main-app-color: rgb(19, 99, 223);
+  --dark-app-color: rgb(5, 41, 95);
+}
+
 body {
   margin: 0;
 }
 
 nav {
   height: 10vh;
+  background-color: var(--main-app-color);
+  color: white;
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.navbar-brand:hover {
+  color: var(--dark-app-color);
+}
+
+nav .btn {
+  font-weight: 500;
+  color: var(--main-app-color);
+  background-color: white !important;
+}
+
+nav .btn:hover {
+  color: var(--dark-app-color);
+  background-color: white !important;
+  transform: scale(1.02);
+  transition: transform 0.25s;
 }
 
 #app {
@@ -51,4 +79,9 @@ nav {
 .new-price {
   text-decoration: none;
   font-size: 1rem;
+}
+
+.list-group-item-action:focus {
+  background-color: var(--main-app-color);
+  color: white;
 }
