@@ -26,7 +26,7 @@ function createProductImg(product) {
   productImage.classList.add("card-img-top");
   // Use default image if no there's no product image url available
   productImage.src = !product.url_image
-    ? "public/no-pictures.png"
+    ? "/no-pictures.png"
     : product.url_image;
   productImage.alt = product.name;
   return productImage;
