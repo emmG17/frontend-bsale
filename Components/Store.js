@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/"; //"http://reto-bsale-backend.herokuapp.com/";
+const API_URL = "http://reto-bsale-backend.herokuapp.com/";
 
 // Request all categories
 async function getCategories() {
