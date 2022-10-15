@@ -8,6 +8,7 @@ nav {
 
 #app {
   height: 90vh;
+  margin-top: 10vh !important;
 }
 
 #products {
