@@ -177,6 +177,19 @@ aside .btn {
   .product-modal .product {
     left: 25%;
   }
+
+  .card-body h5 {
+    font-size: 2rem;
+  }
+
+  .card-body p {
+    font-size: 1.5rem;
+  }
+
+  .card .discount-rate {
+    height: 5rem;
+    width: 5rem;
+  }
 }
 
 @media screen and (min-width: 992px) {
