@@ -40,7 +40,18 @@ async function refreshProductsByCategory(e) {
 }
 
 async function refreshProductsFromSearch(e) {
+  console.log(e);
   e.preventDefault();
+  // Get the user query
+  const formData = new FormData(e.target);
+  const productQuery = formData.get("productQuery");
+
+  // Search query in DB
+  const products = await getProductsByQuery(productQuery);
+
+  // Populate product grid
+  productList.textContent = "";
+  populateProducts(productList, products);
 }
 
 function populateProducts(parent, products) {
@@ -71,16 +82,4 @@ const productList = document.getElementById("products");
 populateProducts(productList, products);
 
 const searchForm = document.getElementById("search-form");
-searchForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  // Get the user query
-  const formData = new FormData(e.target);
-  const productQuery = formData.get("productQuery");
-
-  // Search query in DB
-  const products = await getProductsByQuery(productQuery);
-
-  // Populate product grid
-  productList.textContent = "";
-  populateProducts(productList, products);
-});
+searchForm.addEventListener("submit", refreshProductsFromSearch);
