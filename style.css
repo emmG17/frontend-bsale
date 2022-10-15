@@ -108,6 +108,7 @@ nav .btn:hover {
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.4);
 }
+
 .product-modal .product {
   position: relative;
   top: 15%;
@@ -130,4 +131,40 @@ nav .btn:hover {
 .modal-close-btn:hover {
   color: var(--dark-app-color);
   transition: color 0.25s;
+}
+
+aside .btn {
+  pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  aside .btn,
+  .btn:focus {
+    pointer-events: auto;
+    background-color: var(--main-app-color);
+    color: white;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .product-modal .product {
+    left: 0%;
+  }
+
+  .product-modal .card {
+    transform: scale(1.05);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .product-modal .product {
+    left: 25%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .product-modal .product {
+    left: 40%;
+  }
 }

@@ -44,9 +44,19 @@
       </div>
     </nav>
     <div id="app" class="row m-0">
-      <aside class="col-2 h-100">
-        <h3 class="mt-4 mb-3">Productos</h3>
-        <ul id="category-list" class="list-group"></ul>
+      <aside class="navbar-expand-lg col-12 col-lg-2">
+        <button
+          aria-expanded="true"
+          class="mt-4 mb-3 btn"
+          data-bs-toggle="collapse"
+          data-bs-target="#category-list"
+        >
+          <h3>Productos</h3>
+        </button>
+        <div
+          id="category-list"
+          class="list-group collapse navbar-collapse"
+        ></div>
       </aside>
       <main class="container col m-4">
         <h3 class="mb-3" id="current-results">Todos</h3>

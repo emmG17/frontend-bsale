@@ -56,7 +56,7 @@ const createProduct = (product) => {
   productCard.appendChild(createProductInfo(product));
 
   const productContainer = document.createElement("div");
-  productContainer.classList.add("product", "col-3");
+  productContainer.classList.add("product", "col-12", "col-sm-6", "col-lg-3");
   productContainer.appendChild(productCard);
 
   return productContainer;
