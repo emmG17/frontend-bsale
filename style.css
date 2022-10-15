@@ -17,18 +17,25 @@ nav {
   color: white;
 }
 
+.navbar-brand .material-symbols-rounded {
+  font-size: 3rem;
+}
+
 .navbar-brand:hover {
   color: var(--dark-app-color);
 }
 
 nav .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 500;
   color: var(--main-app-color);
   background-color: white !important;
 }
 
 nav .btn:hover {
-  color: var(--dark-app-color);
+  color: var(--main-app-color);
   background-color: white !important;
   transform: scale(1.02);
   transition: transform 0.25s;
