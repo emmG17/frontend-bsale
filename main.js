@@ -1,38 +1,8 @@
 import { format } from "prettier";
 import createCategory from "./Category";
 import createProduct from "./Product";
+import Store from "./Store";
 
-const API_URL = "http://localhost:3000/"; //"http://reto-bsale-backend.herokuapp.com/";
-
-// Request all categories
-async function getCategories() {
-  let res = await fetch(API_URL + "categories");
-  let categories = await res.json();
-  return categories.categories;
-}
-
-// Request all products
-async function getProducts() {
-  let res = await fetch(API_URL + "products");
-  let products = await res.json();
-  return products.products;
-}
-
-// Request all products belonging to a given category
-async function getProductsByCategory(id) {
-  let res = await fetch(`${API_URL}products/category/${id}`);
-  let products = await res.json();
-  return products.products;
-}
-
-// Request all products contanining the query in their names
-async function getProductsByQuery(product) {
-  let res = await fetch(`${API_URL}products/${product}`);
-  let products = await res.json();
-  return products.products;
-}
-
-//
 async function refreshProductsByCategory(e) {
   const id = e.target.dataset.categoryId;
   const productList = document.getElementById("products");
@@ -42,7 +12,9 @@ async function refreshProductsByCategory(e) {
 
   // If ID is -1 load ALL products, otherwise load products by category
   let products =
-    id === "-1" ? await getProducts() : await getProductsByCategory(id);
+    id === "-1"
+      ? await Store.getProducts()
+      : await Store.getProductsByCategory(id);
 
   // Reset and update the product list
   productList.textContent = "";
@@ -60,7 +32,7 @@ async function refreshProductsFromSearch(e) {
   updateResultsTitle(`Resultados para: ${productQuery}`);
 
   // Search query in DB
-  const products = await getProductsByQuery(productQuery);
+  const products = await Store.getProductsByQuery(productQuery);
 
   // Reset and populate product grid
   productList.textContent = "";
@@ -79,8 +51,8 @@ function populateProducts(parent, products) {
   });
 }
 
-const categories = await getCategories();
-const products = await getProducts();
+const categories = await Store.getCategories();
+const products = await Store.getProducts();
 
 // Put all categories inside the sidebar
 const categoryList = document.getElementById("category-list");
