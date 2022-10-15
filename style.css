@@ -168,6 +168,19 @@ aside .btn {
   .product-modal .card {
     transform: scale(1.05);
   }
+
+  .card .discount-rate {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  nav {
+    height: 15vh;
+  }
+
+  #app {
+    margin-top: 15vh !important;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -219,7 +232,7 @@ aside .btn {
   }
 
   .card .discount-rate {
-    height: 3rem;
-    width: 3rem;
+    height: 3.5rem;
+    width: 3.5rem;
   }
 }
