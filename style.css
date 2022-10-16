@@ -150,6 +150,14 @@ aside .btn {
   pointer-events: none;
 }
 
+.spinner-border {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1001;
+}
+
 @media screen and (max-width: 768px) {
   aside .btn,
   .btn:focus {
@@ -157,6 +165,10 @@ aside .btn {
     background-color: var(--main-app-color);
     color: white;
     font-size: 1rem;
+  }
+
+  aside .spinner-border {
+    display: none;
   }
 }
 
